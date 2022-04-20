@@ -1,7 +1,6 @@
 package stepdefinitions;
 
 import actionclasses.FormQueries;
-import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import manager.PageFactoryManager;
 import org.jetbrains.annotations.NotNull;
@@ -19,24 +18,14 @@ public class FormSteps {
 
     WebDriver driver;
     PageFactoryManager pageFactoryManager;
-//    Navigate navigate;
     FormQueries form;
-//    NewsQueries article;
-//    SearchQueries search;
     ScenarioContext scenarioContext;
-
 
     public FormSteps(@NotNull TestContext testContext) {
         driver = testContext.getDriver();
         pageFactoryManager = testContext.getPageFactoryManager();
 //        navigate = testContext.getNavigate();
         scenarioContext = testContext.scenarioContext;
-
-    }
-//    private static final int DEFAULT_TIMEOUT = 40;
-
-    @Before
-    public void testsSetup() {
         form = new FormQueries(pageFactoryManager);
     }
 

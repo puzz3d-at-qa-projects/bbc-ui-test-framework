@@ -2,9 +2,10 @@ package actionclasses;
 
 import manager.PageFactoryManager;
 import org.openqa.selenium.WebDriver;
-import pageobjects.NewsNavigationBar;
+import pageobjects.menus.NewsNavigationBar;
 import pageobjects.NewsPage;
-import pageobjects.TopMenuBar;
+import pageobjects.menus.SportNavigationBar;
+import pageobjects.menus.TopMenuBar;
 
 public class Navigate {
 
@@ -12,12 +13,17 @@ public class Navigate {
     PageFactoryManager pageFactoryManager;
     TopMenuBar topMenuBar;
     NewsNavigationBar newsNavigationBar;
+    SportNavigationBar sportNavigationBar;
     NewsPage newsPage;
     private static final String BBC_URL = "https://bbc.com/";
 
     public Navigate(WebDriver driver, PageFactoryManager pageFactoryManager) {
         this.driver = driver;
         this.pageFactoryManager = pageFactoryManager;
+        topMenuBar = pageFactoryManager.getTopMenuBar();
+        newsNavigationBar = pageFactoryManager.getNewsNavigationBar();
+        newsPage = pageFactoryManager.getNewsPage();
+        sportNavigationBar = pageFactoryManager.getSportNavigationBar();
     }
 
     public void toTheBBCHomepage() {
@@ -25,12 +31,10 @@ public class Navigate {
     }
 
     public void toTopMenuItem(String menuItem) {
-        topMenuBar = pageFactoryManager.getTopMenuBar();
         topMenuBar.itemForTopMenu(menuItem).click();
     }
 
     public void toMainNewsMenuItem(String menuItem) {
-        newsNavigationBar = pageFactoryManager.getNewsNavigationBar();
         newsNavigationBar.itemForMainMenu(menuItem).click();
     }
 
@@ -39,7 +43,16 @@ public class Navigate {
     }
 
     public void toArticleByItsTitle(String articleTitle) {
-        newsPage = pageFactoryManager.getNewsPage();
         newsPage.getPromoArticleByItsTitle(articleTitle).click();
     }
+
+    public void toMainSportMenuItem(String menuItem) {
+        sportNavigationBar.itemForMainMenu(menuItem).click();
+    }
+
+    public void toSecondarySportMenuItem(String menuItem) {
+        sportNavigationBar.itemForSecondaryMenu(menuItem).click();
+    }
+
+
 }

@@ -1,11 +1,12 @@
-package pageobjects;
+package pageobjects.menus;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import pageobjects.BasePage;
 
-public class NewsNavigationBar extends BasePage{
+public class NewsNavigationBar extends BasePage {
 
     @FindBy(xpath = "//div[contains(@class,'news-wide-navigation')]")
     private WebElement newsMenu;

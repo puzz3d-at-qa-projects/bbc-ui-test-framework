@@ -6,7 +6,6 @@ import org.openqa.selenium.WebElement;
 import pageobjects.SearchPage;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class SearchQueries {
 
@@ -27,7 +26,7 @@ public class SearchQueries {
         return searchPage.getSearchResultsTitles()
                 .stream()
                 .map(WebElement::getText)
-                .collect(Collectors.toList());
+                .toList();
     }
 
     public String firstSearchResultsTitle() {

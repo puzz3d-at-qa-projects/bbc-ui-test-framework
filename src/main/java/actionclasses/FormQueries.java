@@ -3,7 +3,7 @@ package actionclasses;
 import manager.PageFactoryManager;
 import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.Keys;
-import pageobjects.QuestionForm;
+import pageobjects.forms.QuestionForm;
 
 import java.util.List;
 import java.util.Map;

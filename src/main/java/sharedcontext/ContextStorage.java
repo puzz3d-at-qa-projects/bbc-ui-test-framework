@@ -1,5 +1,5 @@
 package sharedcontext;
 
-public enum Context {
+public enum ContextStorage {
     HEADLINE_CATEGORY;
 }
