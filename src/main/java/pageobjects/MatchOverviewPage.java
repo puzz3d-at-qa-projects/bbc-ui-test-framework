@@ -10,12 +10,12 @@ public class MatchOverviewPage extends BasePage {
         super(driver);
     }
 
-    public WebElement getMatch(String homeTeam, String awayTeam, String homeScore, String awayScore) {
+    public WebElement getMatch(String team1, String team2, String team1Score, String team2Score) {
         return driver.findElement(By.xpath(
                 "//div[@class='sp-c-fixture__wrapper' " +
-                        "and descendant::span[text()='" + homeTeam + "'] " +
-                        "and descendant::span[text()='" + awayTeam + "'] " +
-                        "and descendant::span[contains(@class,'home') and text()='" + homeScore + "'] " +
-                        "and descendant::span[contains(@class,'away') and text()='" + awayScore + "']]"));
+                        "and descendant::span[text()='" + team1 + "'] " +
+                        "and descendant::span[text()='" + team2 + "'] " +
+                        "and descendant::span[contains(@class,'home') and text()='" + team1Score + "'] " +
+                        "and descendant::span[contains(@class,'away') and text()='" + team2Score + "']]"));
     }
 }

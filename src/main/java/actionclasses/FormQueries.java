@@ -25,6 +25,8 @@ public class FormQueries {
                         .getFormElement(k).sendKeys(Keys.chord(Keys.CONTROL, "a"), Keys.DELETE)))
                 .forEach(e -> e.forEach((k, v) -> questionForm
                         .getFormElement(k).sendKeys(v.replaceFirst("\\[blank]", ""))));
+        acceptTermsOfService();
+        submit();
     }
 
     public void acceptTermsOfService() {

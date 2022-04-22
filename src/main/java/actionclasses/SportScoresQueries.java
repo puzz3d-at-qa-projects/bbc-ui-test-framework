@@ -7,9 +7,9 @@ import pageobjects.ScoresAndFixturesPage;
 
 public class SportScoresQueries {
 
+    PageFactoryManager pageFactoryManager;
     ScoresAndFixturesPage scoresAndFixturesPage;
     MatchOverviewPage matchOverviewPage;
-    PageFactoryManager pageFactoryManager;
 
     public SportScoresQueries(@NotNull PageFactoryManager pageFactoryManager) {
         this.pageFactoryManager = pageFactoryManager;
@@ -30,15 +30,16 @@ public class SportScoresQueries {
         scoresAndFixturesPage.getMonth(month).click();
     }
 
-    public boolean matchIsOnTheScoresAndFixturesPage(String homeTeam, String awayTeam, String homeScore, String awayScore) {
-        return scoresAndFixturesPage.getMatch(homeTeam, awayTeam, homeScore, awayScore).isDisplayed();
+    public boolean matchIsOnTheScoresAndFixturesPage(String team1, String team2, String team1Score, String team2Score) {
+        return scoresAndFixturesPage.getMatch(team1, team2, team1Score, team2Score).isDisplayed();
     }
 
-    public void clickOnHomeTeam() {
-        scoresAndFixturesPage.getHomeTeamElement().click();
+    public void clickOnTeam1() {
+        scoresAndFixturesPage.getTeam1Element().click();
     }
 
-    public boolean matchIsOnTheMatchOverviewPage(String homeTeam, String awayTeam, String homeScore, String awayScore) {
-        return matchOverviewPage.getMatch(homeTeam, awayTeam, homeScore, awayScore).isDisplayed();
+    public boolean matchIsOnTheMatchOverviewPage(String team1, String team2, String team1Score, String team2Score) {
+        return matchOverviewPage.getMatch(team1, team2, team1Score, team2Score).isDisplayed();
     }
 }
+

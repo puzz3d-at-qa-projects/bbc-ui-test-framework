@@ -7,17 +7,18 @@ Feature: BBC1 part 1
     Given A web browser is at BBC homepage
     When User navigates to News page
     Then Headline article title is
-      | Russia bombards cities across Ukraine |
+      | Anguish for thousands trapped in Mariupol as evacuation stalls |
 
   Scenario: Checks the names of the News promo articles
     Given A web browser is at BBC homepage
     When User navigates to News page
     Then Titles of the promo articles are
-      | Collecting the dead in Bucha                        |
-      | Battle for justice over alleged Russian war crimes  |
-      | Ukraine round-up: US and France divided on genocide |
-      | Is Russia committing genocide in Ukraine?           |
-      | Why has Putin invaded Ukraine - what does he want?  |
+
+      | Ukraine round-up: Civilians trapped as fighter gives 'last address' |
+      | Mariupol fighters' relatives tell of bitter pride                   |
+      | In maps: Russia builds up troops in new offensive                   |
+      | Why Russia wants to seize Ukraine's eastern Donbas                  |
+      | Ukraine round-up: Allies pledge weapons as Russia targets east      |
 
   Scenario: Check the name of the first article in search results
     Given A web browser is at BBC homepage
