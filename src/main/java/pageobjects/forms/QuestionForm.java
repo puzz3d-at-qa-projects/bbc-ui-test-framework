@@ -27,7 +27,7 @@ public class QuestionForm extends BasePage {
         return form.findElement(By.xpath("//button[@class='button']"));
     }
 
-    public WebElement getFormErrorMessage(String errorMessage) {
-        return form.findElement(By.xpath("//div[@class='input-error-message'][text()=\"" + errorMessage + "\"]"));
+    public WebElement getFormErrorMessage() {
+        return form.findElement(By.xpath("//div[@class='input-error-message']"));
     }
 }

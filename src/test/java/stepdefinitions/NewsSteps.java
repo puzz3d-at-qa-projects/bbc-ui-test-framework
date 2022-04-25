@@ -33,31 +33,30 @@ public class NewsSteps {
         news = new NewsQueries(pageFactoryManager);
         search = new SearchQueries(pageFactoryManager);
     }
-//    private static final int DEFAULT_TIMEOUT = 40;
 
-    @And("Headline article title is")
+    @And("the Headline article title is")
     public void headlineArticleNameIs(String articleTitle) {
         assertTrue(news.headlineTitle().equalsIgnoreCase(articleTitle));
     }
 
-    @And("Titles of the promo articles are")
+    @And("the titles of the promo articles are")
     public void titlesOfThePromoArticlesAre(List<String> listOfTitles) {
-        assertEquals(news.promoTitles(), listOfTitles);
+        assertEquals(listOfTitles, news.promoTitles());
     }
 
-    @And("User memorize the Category of the headline article")
+    @And("the user memorize the Category of the headline article")
     public void userMemorizeTheCategoryOfTheHeadlineArticle() {
         scenarioContext.setContext(ContextStorage.HEADLINE_CATEGORY, news.headlineCategory());
     }
 
-    @And("User made a search by this word")
+    @And("the user enters this Category into the search bar")
     public void userMadeASearchByThisWord() {
         navigate.toTopMenuItem("Search");
         search.thisText(scenarioContext.getContext(ContextStorage.HEADLINE_CATEGORY).toString());
     }
 
-    @And("The name of the first article in search results is")
+    @And("the name of the first article in the search results is")
     public void theNameOfTheFirstArticleInSearchResultsIs(String articleTitle) {
-        assertEquals(search.firstSearchResultsTitle(), articleTitle);
+        assertEquals(articleTitle, search.firstSearchResultsTitle());
     }
 }
