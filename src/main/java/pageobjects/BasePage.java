@@ -1,6 +1,5 @@
 package pageobjects;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -16,21 +15,6 @@ public class BasePage {
     public BasePage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
-    }
-
-    public void waitForPageLoadComplete(long timeToWait) {
-        new WebDriverWait(driver, Duration.ofSeconds(timeToWait)).until(
-                webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
-    }
-
-    public void waitForAjaxToComplete(long timeToWait) {
-        new WebDriverWait(driver, Duration.ofSeconds(timeToWait)).until(
-                webDriver -> ((JavascriptExecutor) webDriver).executeScript("return window.jQuery != undefined && jQuery.active == 0;"));
-    }
-
-    public void waitForAjaxToCompletePdp(long timeToWait) {
-        new WebDriverWait(driver, Duration.ofSeconds(timeToWait)).until(
-                webDriver -> ((JavascriptExecutor) webDriver).executeScript("return window.jQuery != undefined && jQuery.active <=2;"));
     }
 
     public void waitVisibilityOfElement(long timeToWait, WebElement element) {
