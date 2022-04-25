@@ -1,6 +1,7 @@
 package actionclasses;
 
 import manager.PageFactoryManager;
+import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.WebDriver;
 import pageobjects.menus.NewsNavigationBar;
 import pageobjects.NewsPage;
@@ -17,7 +18,7 @@ public class Navigate {
     NewsPage newsPage;
     private static final String BBC_URL = "https://bbc.com/";
 
-    public Navigate(WebDriver driver, PageFactoryManager pageFactoryManager) {
+    public Navigate(WebDriver driver, @NotNull PageFactoryManager pageFactoryManager) {
         this.driver = driver;
         this.pageFactoryManager = pageFactoryManager;
         topMenuBar = pageFactoryManager.getTopMenuBar();
@@ -53,6 +54,4 @@ public class Navigate {
     public void toSecondarySportMenuItem(String menuItem) {
         sportNavigationBar.itemForSecondaryMenu(menuItem).click();
     }
-
-
 }
