@@ -11,7 +11,7 @@ import java.util.Objects;
 
 public class NewsPage extends BasePage {
 
-    @FindBy(xpath = "//h3[contains(@class,'gel-canon-bold')]")
+    @FindBy(xpath = "//div[contains(@class,'top-stories__primary-item')]//h3[contains(@class,'heading__title')]")
     private WebElement headlineTitle;
 
     @FindBy(xpath = "//div[@data-entityid='container-top-stories#1']//a[contains(@class, 'section-link')]/span")
@@ -43,11 +43,11 @@ public class NewsPage extends BasePage {
         return closeRegisterAlertButton;
     }
 
-    public WebElement getPromoArticleByItsTitle(String articleTitle) {
+    public WebElement getPromoArticleByItsTitle(String articleTitle) { // finds article title from the list of all promo articles on the page equals to given argument
         return promoArticles.stream()
                 .filter(e -> Objects.equals(e.getText(), articleTitle))
                 .findFirst()
                 .orElseThrow(() -> new NoSuchElementException("No Article found containing " + articleTitle))
-                .findElement(By.xpath("./..")); // h3 not clickable, so returning its parent <a> element
+                .findElement(By.xpath("./..")); // h3 not clickable, so the method returns its parent <a> element
     }
 }
