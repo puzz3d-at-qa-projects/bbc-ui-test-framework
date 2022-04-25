@@ -28,5 +28,14 @@ public class Form {
         }
         questionForm.getSubmitButton().click();
     }
+
+    public void fillForm(Map<String, String> values) {
+        values.forEach((k, v) -> questionForm
+                .getFormElement(k).sendKeys(v.replaceFirst("\\[blank]", "")));
+        if (!questionForm.getTermsOfServiceCheckbox().isSelected()) {
+            questionForm.getTermsOfServiceCheckbox().click();
+        }
+        questionForm.getSubmitButton().click();
+    }
 }
 
