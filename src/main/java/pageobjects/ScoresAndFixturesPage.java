@@ -42,7 +42,7 @@ public class ScoresAndFixturesPage extends BasePage {
                         "and descendant::span[text()='" + team2 + "'] " +
                         "and descendant::span[contains(@class,'home') and text()='" + team1Score + "'] " +
                         "and descendant::span[contains(@class,'away') and text()='" + team2Score + "']]"));
-        team1Element = match.findElement(By.xpath("//span[text()='" + team1 + "']"));
+        team1Element = match.findElement(By.xpath(".//span[text()='" + team1 + "']"));
         return match;
     }
 
@@ -55,7 +55,7 @@ public class ScoresAndFixturesPage extends BasePage {
                 "//div[@class='sp-c-fixture__wrapper' " +
                         "and descendant::span[text()='" + team1 + "'] " +
                         "and descendant::span[text()='" + team2 + "']]" +
-                        "//span[contains(@class,'"+ position+ " sp-c-fixture__number--ft')]"));
+                        "//span[contains(@class,'" + position + " sp-c-fixture__number--ft')]"));
 
     }
 }
