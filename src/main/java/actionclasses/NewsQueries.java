@@ -6,7 +6,6 @@ import org.openqa.selenium.WebElement;
 import pageobjects.NewsPage;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class NewsQueries {
 
@@ -27,7 +26,7 @@ public class NewsQueries {
     }
 
     public List<String> promoTitles() {
-        return newsPage.getPromoArticles().stream().map(WebElement::getText).collect(Collectors.toList());
+        return newsPage.getPromoArticles().stream().map(WebElement::getText).toList();
     }
 
     public void closeRegisterAlert() {
