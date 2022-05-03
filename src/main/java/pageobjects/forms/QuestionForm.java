@@ -20,14 +20,14 @@ public class QuestionForm extends BasePage {
     }
 
     public WebElement getTermsOfServiceCheckbox() {
-        return form.findElement(By.xpath("//input[@type='checkbox']"));
+        return form.findElement(By.xpath(".//input[@type='checkbox']"));
     }
 
     public WebElement getSubmitButton() {
-        return form.findElement(By.xpath("//button[@class='button']"));
+        return form.findElement(By.xpath(".//button[@class='button']"));
     }
 
     public WebElement getFormErrorMessage() {
-        return form.findElement(By.xpath("//div[@class='input-error-message']"));
+        return form.findElement(By.xpath(".//div[@class='input-error-message']"));
     }
 }
