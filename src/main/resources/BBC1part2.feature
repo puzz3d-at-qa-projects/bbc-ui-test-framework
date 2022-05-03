@@ -4,10 +4,10 @@ Feature: BBC1 part 2
   I want to check some question form related functionality of the BBC site
   So I can be sure that this functionality works correctly
 
-   Scenario Outline: Handling invalid question form submission (outline version)
+  Scenario Outline: Handling invalid question form submission (outline version)
     Given a web browser is at BBC homepage
     And the user finds a form named 'Your questions answered: What questions do you have?'
-    When the user trying to submit the form with incorrectly entered dataData
+    When the user trying to submit the form with missing data
       | question       | <question> |
       | Name           | <Name>     |
       | Email          | <Email>    |
@@ -29,8 +29,8 @@ Feature: BBC1 part 2
     Given a web browser is at BBC homepage
     And the user finds a form named 'Your questions answered: What questions do you have?'
     When the user trying to submit the form with incorrectly entered data
-      | question | Name     | Email | number | Location   | Age |
-      | [blank]  | someName | a@b.c | 322223 | relocation | 4,5 |
+      | question | Name    | Email         | number             | Location   | Age       |
+      | [blank]  | а я вам | сейчас покажу | откуда на Беларусь | готовилось | нападение |
 
     Then the error message "can't be blank" displayed
 
