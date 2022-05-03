@@ -38,14 +38,15 @@ public class FormSteps {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         form.clickTermsOfService(); // had to add these clicks to clear error from previous iteration
         form.clickTermsOfService(); // it was "cached" somehow, couldn't fix it with any waits but Thread.sleep, which is forbidden))
-        form.clickTermsOfService(); // with just one click test was unstable, with three works fine ☺
+        form.clickTermsOfService(); // with just one click test was unstable, with three-four works fine ☺
+        form.clickTermsOfService();
         System.out.println("fem:"+form.errorMessage());
         System.out.println("eem:"+expectedErrorMessage);
         assertTrue(form.errorMessage().contains(expectedErrorMessage));
     }
 
-    @And("the user trying to submit the form with incorrectly entered dataData")
-    public void theUserTryingToSubmitTheFormWithIncorrectlyEnteredData(Map<String,String> formData) {
+    @And("the user trying to submit the form with missing data")
+    public void theUserTryingToSubmitTheFormWithMissingData(Map<String,String> formData) {
         formToMeetTaskRequirements.fillForm(formData);
     }
 
