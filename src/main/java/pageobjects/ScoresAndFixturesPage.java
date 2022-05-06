@@ -23,10 +23,6 @@ public class ScoresAndFixturesPage extends BasePage {
         return searchInput;
     }
 
-    public WebElement getDateScroller() {
-        return dateScroller;
-    }
-
     public WebElement getLeagueSuggestion(String league) {
         return driver.findElement(By.xpath("//li[contains(@class,'search__result')][contains(., '" + league + "')]"));
     }
