@@ -3,6 +3,7 @@ package pageobjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
@@ -11,7 +12,7 @@ import java.util.Objects;
 
 public class NewsPage extends BasePage {
 
-    @FindBy(xpath = "//div[contains(@class,'top-stories__primary-item')]//h3[contains(@class,'heading__title')]")
+    @FindBy(xpath = "//div[@data-entityid='container-top-stories#1']//h3[contains(@class,'heading__title')]")
     private WebElement headlineTitle;
 
     @FindBy(xpath = "//div[@data-entityid='container-top-stories#1']//a[contains(@class, 'section-link')]/span")
@@ -21,6 +22,7 @@ public class NewsPage extends BasePage {
     private List<WebElement> promoArticles;
 
     @FindBy(xpath = "//button[@aria-label='Close']")
+    @CacheLookup
     private WebElement closeRegisterAlertButton;
 
     public NewsPage(WebDriver driver) {

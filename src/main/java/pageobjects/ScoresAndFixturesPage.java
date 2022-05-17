@@ -3,14 +3,17 @@ package pageobjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 
 public class ScoresAndFixturesPage extends BasePage {
 
-    @FindBy(xpath = "//input[@name='search']")
+    @FindBy(css = "input[name='search']")
+    @CacheLookup
     private WebElement searchInput;
 
-    @FindBy(xpath = "//div[@class='sp-c-content-slider__scroller']")
+    @FindBy(css = "div.sp-c-content-slider__scroller")
+    @CacheLookup
     private WebElement dateScroller;
 
     private WebElement team1Element;
