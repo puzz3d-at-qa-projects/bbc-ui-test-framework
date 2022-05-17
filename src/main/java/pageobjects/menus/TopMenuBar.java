@@ -9,7 +9,7 @@ import pageobjects.BasePage;
 
 public class TopMenuBar extends BasePage {
 
-    @FindBy(xpath = "//div[@id='orb-header']")
+    @FindBy(css = "#orb-header")
     @CacheLookup
     private WebElement topMenu;
 
