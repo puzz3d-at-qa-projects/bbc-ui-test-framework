@@ -6,9 +6,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pageobjects.BasePage;
 
-public class QuestionForm extends BasePage {
+public class
+QuestionForm extends BasePage {
 
-    @FindBy(xpath = "//div[@class='embed-content-container']")
+    @FindBy(css = "div.embed-content-container")
+//    @FindBy(xpath = "//div[@class='embed-content-container']")
     private WebElement form;
 
     public QuestionForm(WebDriver driver) {
