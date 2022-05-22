@@ -18,7 +18,7 @@ public class Form {
         questionForm = pageFactoryManager.getQuestionForm();
     }
 
-    public void fillForm(List<Map<String, String>> values) {
+    public void fillForm(@NotNull List<Map<String, String>> values) {
         values.forEach(e -> e.forEach((k, v) -> questionForm
                 .getFormElement(k).sendKeys(Keys.chord(Keys.CONTROL, "a"), Keys.DELETE)));
         values.forEach(e -> e.forEach((k, v) -> questionForm
@@ -29,7 +29,7 @@ public class Form {
         questionForm.getSubmitButton().click();
     }
 
-    public void fillForm(Map<String, String> values) {
+    public void fillForm(@NotNull Map<String, String> values) {
         values.forEach((k, v) -> questionForm
                 .getFormElement(k).sendKeys(v.replaceFirst("\\[blank]", "")));
         if (!questionForm.getTermsOfServiceCheckbox().isSelected()) {
