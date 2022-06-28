@@ -10,7 +10,6 @@ public class
 QuestionForm extends BasePage {
 
     @FindBy(css = "div.embed-content-container")
-//    @FindBy(xpath = "//div[@class='embed-content-container']")
     private WebElement form;
 
     public QuestionForm(WebDriver driver) {
