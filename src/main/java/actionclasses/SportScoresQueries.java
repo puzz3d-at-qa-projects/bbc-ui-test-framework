@@ -1,20 +1,20 @@
 package actionclasses;
 
-import manager.PageFactoryManager;
+import manager.POFactory;
 import org.jetbrains.annotations.NotNull;
 import pageobjects.MatchOverviewPage;
 import pageobjects.ScoresAndFixturesPage;
 
 public class SportScoresQueries {
 
-    PageFactoryManager pageFactoryManager;
+    POFactory poFactory;
     ScoresAndFixturesPage scoresAndFixturesPage;
     MatchOverviewPage matchOverviewPage;
 
-    public SportScoresQueries(@NotNull PageFactoryManager pageFactoryManager) {
-        this.pageFactoryManager = pageFactoryManager;
-        scoresAndFixturesPage = pageFactoryManager.getScoresAndFixturesPage();
-        matchOverviewPage = pageFactoryManager.getMatchOverviewPage();
+    public SportScoresQueries(@NotNull POFactory poFactory) {
+        this.poFactory = poFactory;
+        scoresAndFixturesPage = poFactory.getPage(ScoresAndFixturesPage.class);
+        matchOverviewPage = poFactory.getPage(MatchOverviewPage.class);
     }
 
     public void searchLeague(String league) {

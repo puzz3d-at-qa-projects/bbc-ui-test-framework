@@ -1,7 +1,7 @@
 package sharedcontext;
 
 import actionclasses.Navigate;
-import manager.PageFactoryManager;
+import manager.POFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -10,7 +10,7 @@ import static io.github.bonigarcia.wdm.WebDriverManager.chromedriver;
 public class TestContext {
 
     private WebDriver driver;
-    private PageFactoryManager pageFactoryManager;
+    private POFactory poFactory;
     private Navigate navigate;
     public ScenarioContext scenarioContext;
 
@@ -18,8 +18,8 @@ public class TestContext {
         chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        pageFactoryManager = new PageFactoryManager(driver);
-        navigate = new Navigate(driver, pageFactoryManager);
+        poFactory = new POFactory(driver);
+        navigate = new Navigate(driver, poFactory);
         scenarioContext = new ScenarioContext();
     }
 
@@ -27,8 +27,8 @@ public class TestContext {
         return driver;
     }
 
-    public PageFactoryManager getPageFactoryManager() {
-        return pageFactoryManager;
+    public POFactory getPoFactory() {
+        return poFactory;
     }
 
     public Navigate getNavigate() {

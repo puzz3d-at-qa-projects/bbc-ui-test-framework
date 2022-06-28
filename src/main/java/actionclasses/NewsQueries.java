@@ -1,6 +1,6 @@
 package actionclasses;
 
-import manager.PageFactoryManager;
+import manager.POFactory;
 import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.WebElement;
 import pageobjects.NewsPage;
@@ -10,11 +10,11 @@ import java.util.List;
 public class NewsQueries {
 
     NewsPage newsPage;
-    PageFactoryManager pageFactoryManager;
+    POFactory poFactory;
 
-    public NewsQueries(@NotNull PageFactoryManager pageFactoryManager) {
-        this.pageFactoryManager = pageFactoryManager;
-        newsPage = pageFactoryManager.getNewsPage();
+    public NewsQueries(@NotNull POFactory poFactory) {
+        this.poFactory = poFactory;
+        newsPage = poFactory.getPage(NewsPage.class);
     }
 
     public String headlineTitle() {

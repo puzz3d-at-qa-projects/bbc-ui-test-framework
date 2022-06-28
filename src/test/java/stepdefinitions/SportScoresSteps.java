@@ -3,7 +3,7 @@ package stepdefinitions;
 import actionclasses.SportScoresQueries;
 import complexelements.ScoreBoard;
 import io.cucumber.java.en.And;
-import manager.PageFactoryManager;
+import manager.POFactory;
 import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.WebDriver;
 import sharedcontext.TestContext;
@@ -16,15 +16,15 @@ import static org.junit.Assert.assertTrue;
 public class SportScoresSteps {
 
     WebDriver driver;
-    PageFactoryManager pageFactoryManager;
+    POFactory poFactory;
     SportScoresQueries scores;
     ScoreBoard scoreBoard;
 
     public SportScoresSteps(@NotNull TestContext testContext) {
         driver = testContext.getDriver();
-        pageFactoryManager = testContext.getPageFactoryManager();
-        scores = new SportScoresQueries(pageFactoryManager);
-        scoreBoard = new ScoreBoard(pageFactoryManager);
+        poFactory = testContext.getPoFactory();
+        scores = new SportScoresQueries(poFactory);
+        scoreBoard = new ScoreBoard(poFactory);
     }
 
     @And("the user made a search by {string}")

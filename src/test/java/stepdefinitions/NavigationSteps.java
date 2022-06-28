@@ -6,7 +6,7 @@ import actionclasses.SearchQueries;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
-import manager.PageFactoryManager;
+import manager.POFactory;
 import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.WebDriver;
 import sharedcontext.TestContext;
@@ -14,22 +14,22 @@ import sharedcontext.TestContext;
 public class NavigationSteps {
 
     WebDriver driver;
-    PageFactoryManager pageFactoryManager;
+    POFactory poFactory;
     Navigate navigate;
     NewsQueries article;
     SearchQueries search;
 
     public NavigationSteps(@NotNull TestContext testContext) {
         driver = testContext.getDriver();
-        pageFactoryManager = testContext.getPageFactoryManager();
+        poFactory = testContext.getPoFactory();
         navigate = testContext.getNavigate();
 
     }
 
     @Before
     public void testsSetup() {
-        article = new NewsQueries(pageFactoryManager);
-        search = new SearchQueries(pageFactoryManager);
+        article = new NewsQueries(poFactory);
+        search = new SearchQueries(poFactory);
     }
 
     @After

@@ -1,6 +1,6 @@
 package actionclasses;
 
-import manager.PageFactoryManager;
+import manager.POFactory;
 import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.WebDriver;
 import pageobjects.menus.NewsNavigationBar;
@@ -11,20 +11,20 @@ import pageobjects.menus.TopMenuBar;
 public class Navigate {
 
     WebDriver driver;
-    PageFactoryManager pageFactoryManager;
+    POFactory poFactory;
     TopMenuBar topMenuBar;
     NewsNavigationBar newsNavigationBar;
     SportNavigationBar sportNavigationBar;
     NewsPage newsPage;
     private static final String BBC_URL = "https://bbc.com/";
 
-    public Navigate(WebDriver driver, @NotNull PageFactoryManager pageFactoryManager) {
+    public Navigate(WebDriver driver, @NotNull POFactory poFactory) {
         this.driver = driver;
-        this.pageFactoryManager = pageFactoryManager;
-        topMenuBar = pageFactoryManager.getTopMenuBar();
-        newsNavigationBar = pageFactoryManager.getNewsNavigationBar();
-        newsPage = pageFactoryManager.getNewsPage();
-        sportNavigationBar = pageFactoryManager.getSportNavigationBar();
+        this.poFactory = poFactory;
+        topMenuBar = poFactory.getPage(TopMenuBar.class);
+        newsNavigationBar = poFactory.getPage(NewsNavigationBar.class);
+        newsPage = poFactory.getPage(NewsPage.class);
+        sportNavigationBar = poFactory.getPage(SportNavigationBar.class);
     }
 
     public void toTheBBCHomepage() {

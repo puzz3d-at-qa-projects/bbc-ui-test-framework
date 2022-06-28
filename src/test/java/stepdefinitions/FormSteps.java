@@ -3,7 +3,7 @@ package stepdefinitions;
 import actionclasses.FormQueries;
 import complexelements.Form;
 import io.cucumber.java.en.And;
-import manager.PageFactoryManager;
+import manager.POFactory;
 import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.WebDriver;
 import sharedcontext.TestContext;
@@ -17,15 +17,15 @@ import static org.junit.Assert.assertTrue;
 public class FormSteps {
 
     WebDriver driver;
-    PageFactoryManager pageFactoryManager;
+    POFactory poFactory;
     FormQueries form;
     Form formToMeetTaskRequirements;
 
     public FormSteps(@NotNull TestContext testContext) {
         driver = testContext.getDriver();
-        pageFactoryManager = testContext.getPageFactoryManager();
-        form = new FormQueries(pageFactoryManager);
-        formToMeetTaskRequirements = new Form(pageFactoryManager);
+        poFactory = testContext.getPoFactory();
+        form = new FormQueries(poFactory);
+        formToMeetTaskRequirements = new Form(poFactory);
     }
 
     @And("the user trying to submit the form with incorrectly entered data")
@@ -40,8 +40,6 @@ public class FormSteps {
         form.clickTermsOfService(); // it was "cached" somehow, couldn't fix it with any waits but Thread.sleep, which is forbidden))
         form.clickTermsOfService(); // with just one click test was unstable, with three-four works fine ☺
         form.clickTermsOfService();
-        System.out.println("fem:"+form.errorMessage());
-        System.out.println("eem:"+expectedErrorMessage);
         assertTrue(form.errorMessage().contains(expectedErrorMessage));
     }
 

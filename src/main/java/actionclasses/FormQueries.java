@@ -1,17 +1,17 @@
 package actionclasses;
 
-import manager.PageFactoryManager;
+import manager.POFactory;
 import org.jetbrains.annotations.NotNull;
 import pageobjects.forms.QuestionForm;
 
 public class FormQueries {
 
     QuestionForm questionForm;
-    PageFactoryManager pageFactoryManager;
+    POFactory poFactory;
 
-    public FormQueries(@NotNull PageFactoryManager pageFactoryManager) {
-        this.pageFactoryManager = pageFactoryManager;
-        questionForm = pageFactoryManager.getQuestionForm();
+    public FormQueries(@NotNull POFactory poFactory) {
+        this.poFactory = poFactory;
+        questionForm = poFactory.getPage(QuestionForm.class);
     }
 
     public void clickTermsOfService() {

@@ -1,6 +1,6 @@
 package complexelements;
 
-import manager.PageFactoryManager;
+import manager.POFactory;
 import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.Keys;
 import pageobjects.forms.QuestionForm;
@@ -10,12 +10,12 @@ import java.util.Map;
 
 public class Form {
 
-    PageFactoryManager pageFactoryManager;
+    POFactory poFactory;
     QuestionForm questionForm;
 
-    public Form(@NotNull PageFactoryManager pageFactoryManager) {
-        this.pageFactoryManager = pageFactoryManager;
-        questionForm = pageFactoryManager.getQuestionForm();
+    public Form(@NotNull POFactory poFactory) {
+        this.poFactory = poFactory;
+        questionForm = poFactory.getPage(QuestionForm.class);
     }
 
     public void fillForm(@NotNull List<Map<String, String>> values) {

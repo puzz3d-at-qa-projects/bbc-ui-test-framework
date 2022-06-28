@@ -4,7 +4,7 @@ import actionclasses.Navigate;
 import actionclasses.NewsQueries;
 import actionclasses.SearchQueries;
 import io.cucumber.java.en.And;
-import manager.PageFactoryManager;
+import manager.POFactory;
 import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.WebDriver;
 import sharedcontext.ContextStorage;
@@ -19,7 +19,7 @@ import static org.junit.Assert.assertTrue;
 public class NewsSteps {
 
     WebDriver driver;
-    PageFactoryManager pageFactoryManager;
+    POFactory poFactory;
     Navigate navigate;
     NewsQueries news;
     SearchQueries search;
@@ -27,11 +27,11 @@ public class NewsSteps {
 
     public NewsSteps(@NotNull TestContext testContext) {
         driver = testContext.getDriver();
-        pageFactoryManager = testContext.getPageFactoryManager();
+        poFactory = testContext.getPoFactory();
         navigate = testContext.getNavigate();
         scenarioContext = testContext.scenarioContext;
-        news = new NewsQueries(pageFactoryManager);
-        search = new SearchQueries(pageFactoryManager);
+        news = new NewsQueries(poFactory);
+        search = new SearchQueries(poFactory);
     }
 
     @And("the Headline article title is")

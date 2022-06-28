@@ -1,6 +1,6 @@
 package actionclasses;
 
-import manager.PageFactoryManager;
+import manager.POFactory;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import pageobjects.SearchPage;
@@ -10,14 +10,14 @@ import java.util.List;
 public class SearchQueries {
 
     SearchPage searchPage;
-    PageFactoryManager pageFactoryManager;
+    POFactory poFactory;
 
-    public SearchQueries(PageFactoryManager pageFactoryManager) {
-        this.pageFactoryManager = pageFactoryManager;
+    public SearchQueries(POFactory poFactory) {
+        this.poFactory = poFactory;
+        searchPage = poFactory.getPage(SearchPage.class);
     }
 
     public void thisText(String query) {
-        searchPage = pageFactoryManager.getSearchPage();
         searchPage.getSearchInput().clear();
         searchPage.getSearchInput().sendKeys(query + Keys.ENTER);
     }

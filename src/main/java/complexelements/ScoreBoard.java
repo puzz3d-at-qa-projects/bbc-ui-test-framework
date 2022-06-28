@@ -1,17 +1,17 @@
 package complexelements;
 
-import manager.PageFactoryManager;
+import manager.POFactory;
 import org.jetbrains.annotations.NotNull;
 import pageobjects.ScoresAndFixturesPage;
 
 public class ScoreBoard {
 
-    PageFactoryManager pageFactoryManager;
+    POFactory poFactory;
     ScoresAndFixturesPage scoresAndFixturesPage;
 
-    public ScoreBoard(@NotNull PageFactoryManager pageFactoryManager) {
-        this.pageFactoryManager = pageFactoryManager;
-        scoresAndFixturesPage = pageFactoryManager.getScoresAndFixturesPage();
+    public ScoreBoard(@NotNull POFactory poFactory) {
+        this.poFactory = poFactory;
+        scoresAndFixturesPage = poFactory.getPage(ScoresAndFixturesPage.class);
     }
 
     public Score getScore(String team1, String team2) {
