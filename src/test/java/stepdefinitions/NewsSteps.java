@@ -36,7 +36,8 @@ public class NewsSteps {
 
     @And("the Headline article title is")
     public void headlineArticleNameIs(String articleTitle) {
-        assertTrue(news.headlineTitle().equalsIgnoreCase(articleTitle));
+        assertTrue("The title doesn't match the given condition!"
+                , news.headlineTitle().equalsIgnoreCase(articleTitle));
     }
 
     @And("the titles of the promo articles are")

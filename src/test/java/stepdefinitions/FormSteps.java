@@ -40,7 +40,8 @@ public class FormSteps {
         form.clickTermsOfService(); // it was "cached" somehow, couldn't fix it with any waits but Thread.sleep, which is forbidden))
         form.clickTermsOfService(); // with just one click test was unstable, with three-four works fine ☺
         form.clickTermsOfService();
-        assertTrue(form.errorMessage().contains(expectedErrorMessage));
+        assertTrue("The expected Error message wasn't found!"
+                , form.errorMessage().contains(expectedErrorMessage));
     }
 
     @And("the user trying to submit the form with missing data")
@@ -52,6 +53,7 @@ public class FormSteps {
     public void theErrorErrormsgDisplayed(@NotNull Map<String, String> expectedErrorMessage) {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         String key = expectedErrorMessage.keySet().iterator().next();
-        assertTrue(form.errorMessage().contains(expectedErrorMessage.get(key)));
+        assertTrue("The expected Error message wasn't found!"
+                , form.errorMessage().contains(expectedErrorMessage.get(key)));
     }
 }

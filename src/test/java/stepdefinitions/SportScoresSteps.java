@@ -41,7 +41,8 @@ public class SportScoresSteps {
     @And("there is a match between {string} and {string} with {string} - {string} on the Scores & Fixtures page")
     public void thereIsAMatchOnTheScoresFixturesPage(String team1, String team2, String team1Score, String team2Score) {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-        assertTrue(scores.matchIsOnTheScoresAndFixturesPage(team1, team2, team1Score, team2Score));
+        assertTrue("The match wasn't found on the Scores & Fixtures page!"
+                , scores.matchIsOnTheScoresAndFixturesPage(team1, team2, team1Score, team2Score));
     }
 
     @And("the user clicks on 'Home team'")
@@ -52,7 +53,8 @@ public class SportScoresSteps {
     @And("there is a match between {string} and {string} with {string} - {string} on the Match Overview page")
     public void thereIsAMatchOnTheOverviewPage(String team1, String team2, String team1Score, String team2Score) {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-        assertTrue(scores.matchIsOnTheMatchOverviewPage(team1, team2, team1Score, team2Score));
+        assertTrue("The match wasn't found on the Match Overview page!"
+                ,scores.matchIsOnTheMatchOverviewPage(team1, team2, team1Score, team2Score));
     }
 
     @And("the score of the match between {string} and {string} is {string} - {string}")
