@@ -32,4 +32,4 @@ Feature: BBC2 part 2
       | Championship name  | Month   | Team1     | Team1 score | Team2 score | Team2     |
       | Premier League     | 2022-03 | Arsenal   | 0           | 2           | Liverpool |
       | Championship       | 2022-02 | Blackpool | 4           | 1           | Reading   |
-      | Swiss Super League | 2021-10 | Lugano    | 2           | 1           | Servette  |
+#      | Swiss Super League | 2021-10 | Lugano    | 2           | 1           | Servette  |
