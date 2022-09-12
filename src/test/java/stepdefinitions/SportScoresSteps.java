@@ -8,8 +8,6 @@ import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.WebDriver;
 import sharedcontext.TestContext;
 
-import java.time.Duration;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -40,7 +38,6 @@ public class SportScoresSteps {
 
     @And("there is a match between {string} and {string} with {string} - {string} on the Scores & Fixtures page")
     public void thereIsAMatchOnTheScoresFixturesPage(String team1, String team2, String team1Score, String team2Score) {
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         assertTrue("The match wasn't found on the Scores & Fixtures page!"
                 , scores.matchIsOnTheScoresAndFixturesPage(team1, team2, team1Score, team2Score));
     }
@@ -52,14 +49,12 @@ public class SportScoresSteps {
 
     @And("there is a match between {string} and {string} with {string} - {string} on the Match Overview page")
     public void thereIsAMatchOnTheOverviewPage(String team1, String team2, String team1Score, String team2Score) {
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         assertTrue("The match wasn't found on the Match Overview page!"
                 ,scores.matchIsOnTheMatchOverviewPage(team1, team2, team1Score, team2Score));
     }
 
     @And("the score of the match between {string} and {string} is {string} - {string}")
     public void theScoreOfTheMatchBetweenTeamAndTeamIs(String team1, String team2, String team1Score, String team2Score) {
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         assertEquals(team1Score + " - " + team2Score, scoreBoard.getScore(team1, team2).toString());
     }
 }

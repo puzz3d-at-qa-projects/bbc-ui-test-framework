@@ -8,7 +8,6 @@ import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.WebDriver;
 import sharedcontext.TestContext;
 
-import java.time.Duration;
 import java.util.List;
 import java.util.Map;
 
@@ -35,7 +34,6 @@ public class FormSteps {
 
     @And("the error message {string} displayed")
     public void errorMessageCanTBeBlankDisplayed(String expectedErrorMessage) {
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         form.clickTermsOfService(); // had to add these clicks to clear error from previous iteration
         form.clickTermsOfService(); // it was "cached" somehow, couldn't fix it with any waits but Thread.sleep, which is forbidden))
         form.clickTermsOfService(); // with just one click test was unstable, with three-four works fine ☺
@@ -51,7 +49,6 @@ public class FormSteps {
 
     @And("the error message displayed")
     public void theErrorErrormsgDisplayed(@NotNull Map<String, String> expectedErrorMessage) {
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         String key = expectedErrorMessage.keySet().iterator().next();
         assertTrue("The expected Error message wasn't found!"
                 , form.errorMessage().contains(expectedErrorMessage.get(key)));

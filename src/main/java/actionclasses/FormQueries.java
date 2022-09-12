@@ -19,7 +19,6 @@ public class FormQueries {
     }
 
     public String errorMessage() {
-        questionForm.waitVisibilityOfElement(20, questionForm.getFormErrorMessage());
         return questionForm.getFormErrorMessage().getText();
     }
 }
